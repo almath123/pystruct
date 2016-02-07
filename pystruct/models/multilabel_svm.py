@@ -84,7 +84,7 @@ class MultiLabelClf(CRF):
         elif self.n_labels != n_labels:
             raise ValueError("Expected %d labels, got %d"
                              % (self.n_labels, n_labels))
-        
+
         self._set_edge_structure_from_labels(Y)
         self._set_size_joint_feature()
         self._set_class_weight()
