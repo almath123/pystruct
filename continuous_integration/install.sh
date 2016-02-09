@@ -42,8 +42,16 @@ if [[ "$DISTRIB" == "conda" ]]; then
 
     # Configure the conda environment and put it in the path using the
     # provided versions
+
+    if [[ "$INSTALL_MKL" == "true" ]]; then
+        # Make sure that MKL is used
+        $MKL = mkl
+    else
+        # Make sure that MKL is not used
+        $MKL = nomkl
+    fi
     
-    conda create -n testenv --yes python=$PYTHON_VERSION pip nose cython scikit-learn cvxopt\
+    conda create -n testenv --yes python=$PYTHON_VERSION $MKL pip nose cython scikit-learn cvxopt\
         numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION
 
     source activate testenv
@@ -60,7 +68,6 @@ elif [[ "$DISTRIB" == "ubuntu" ]]; then
     # Use standard ubuntu packages in their default version
     # except for cython :-/
     $PIP install --user cvxopt
-    $PIP install --user scikit-learn 
     $PIP install --user scipy==$SCIPY_VERSION
 fi
 
