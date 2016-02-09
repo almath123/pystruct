@@ -45,10 +45,10 @@ if [[ "$DISTRIB" == "conda" ]]; then
 
     if [[ "$INSTALL_MKL" == "true" ]]; then
         # Make sure that MKL is used
-        $MKL=mkl
+        MKL=mkl
     else
         # Make sure that MKL is not used
-        $MKL=nomkl
+        MKL=nomkl
     fi
     
     conda create -n testenv --yes python=$PYTHON_VERSION $MKL pip nose cython scikit-learn cvxopt\
