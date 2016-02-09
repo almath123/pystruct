@@ -61,7 +61,7 @@ elif [[ "$DISTRIB" == "ubuntu" ]]; then
     # except for cython :-/
     $PIP install --user cvxopt
     $PIP install --user scikit-learn 
-    apt-get install python-scipy
+    $PIP install --user scipy==$SCIPY_VERSION
 fi
 
 if [[ "$COVERAGE" == "true" ]]; then
