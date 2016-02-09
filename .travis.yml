@@ -2,8 +2,6 @@ sudo: false
 language: python
 addons:
   apt:
-    before-install:
-    pip install python-scipy="0.11.0"
     sources:
     - boost-latest
     packages:
